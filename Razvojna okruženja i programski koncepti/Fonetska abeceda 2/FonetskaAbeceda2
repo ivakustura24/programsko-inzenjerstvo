@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Fonetska_abeceda_2_novo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a word using a phonetic alphabet: ");
+            string unos = Console.ReadLine();
+            string[] rijec = unos.Split(' ');
+            string[] fonetskaabeceda = new string[]
+            {
+                "Alfa", "Bravo", "Charlie",
+                "Delta", "Echo", "Foxtrot",
+                "Golf", "Hotel", "India",
+                "Juliett", "Kilo", "Lima",
+                "Mike", "November", "Oscar",
+                "Papa", "Quebec", "Romeo",
+                "Sierra", "Tango", "Uniform",
+                "Victor", "Whiskey", "Xray",
+                "Yankee", "Zulu"
+            };
+            char slovo;
+            string slovo1;
+            List <string> ispis=new List<string> ();
+            for (int i = 0; i < rijec.Length; i++)
+            {
+                for (int j=0; j< fonetskaabeceda.Length; j++)
+                {
+                    if(fonetskaabeceda[j] == rijec[i] )
+                    {
+                        slovo = fonetskaabeceda[j].First();
+                        slovo1 = slovo.ToString();
+                        ispis.Add(slovo1);
+                        break;
+                    }
+                }
+            }
+            if (ispis.Count != rijec.Length)
+            {
+                Console.WriteLine("Your entry is invalid!");
+            }
+            else
+            {
+                Console.WriteLine("You wrote: ");
+                foreach (string s in ispis)
+                    Console.Write(s);
+            }
+            Console.ReadLine();
+            
+
+        }
+    }
+}
